@@ -39,7 +39,10 @@ The primary motivation for this work was to estimate membership functions of the
 which span the
 [Fuzzy Information Space](https://www.academia.edu/39731003/SIGNAL_AND_SYSTEM_ANALYSIS_IN_FUZZY_INFORMATION_SPACE).
 Nevertheless, the provided software package may be used for solving any problem that
-requires fuzzy c-means clustering.
+requires fuzzy c-means clustering, e.g. tracking of speech and noise power changes,
+echo path estimation, analysis, and characterization, etc. Fuzzy clustering has been applied
+within a wide range of engineering and research disciplines including geology, agriculture,
+social sciense, etc.
 
 ## Installation
 
@@ -194,6 +197,51 @@ who was at the time
 University of Plymouth for submitting a fix to make the `fcmclt` package work for
 MATLAB 6.5 R13. If we are to trust the LinkedIn, Dr. Hamadicharef is now (2022) with
 the $\textcolor{#00c0c0}{\text{Institute of High Performance Computing (IHPC)}}$ in Singapore.
+
+## References
+
+For general information on fuzzy clustering, partition coefficient (F), and partition
+entropy (H), the best starting point is
+
+    J.C. Bezdek, "Pattern Recognition with Fuzzy Objective
+    Function Algorithms", Plenum Press, New York, 1981.
+
+For more information on nonfuzzy index (NFI), please refer to
+
+    M. Roubens, "Pattern Classification Problems and Fuzzy Sets",
+    Fuzzy Sets and Systems, 1:239-253, 1978.
+
+For more information on minimum and mean hard tendencies (MinHT and MeanHT), please refer to
+
+    F.F. Rivera, E.L. Zapata, and J.M. Carazo, "Cluster validity
+    based on the hard tendency of the fuzzy classification",
+    Pattern Recognition Letters, 11:7-12, 1990.
+
+For more information on minimum and maximum relative fuzziness (MinRF and MaxRF), please
+refer to
+
+    H.L. Gordon and R.L. Somorjai, "Fuzzy Cluster Analysis of
+    Molecular Dynamics Trajectories", Proteins: Structure,
+    Function, and Genetics, 14:249-264, 1992.
+
+For more information on minimum nearest maximum membership cardinality (MinNMMcard)
+and related functionals including a way to go about the selection of fuzzy
+exponent $m$, please refer to
+
+    B.R. Kosanovic, "Signal and System Analysis in Fuzzy Information Space",
+    Ph.D. Dissertation, University of Pittaburgh, 1995.
+
+For more information on compactness and separation index (S), please refer to
+
+    X.L. Xie and G. Beni, "A Validity Measure for Fuzzy Clustering",
+    IEEE Trans. PAMI, 13(8):841-847, 1991.
+
+For more information on fuzzy hypervolume (Fhv), average partition
+         density (Dpa), and partition density (Pd), please refer to
+
+    I. Gath and A.B. Geva, "Fuzzy clustering for the estimation of
+    the parameters of the components of mixtures of normal
+    distributions", Pattern Recognition Letters, 9:77-86, 1989.
 
 ## License
 
