@@ -162,7 +162,7 @@ NOTE: If you would like to use the C code outside of MATLAB, you may need to do 
   way MATLAB manages memory. Especially when it comes to allocating and deallocating
   memory.
 
-The `gkfcmc.c` and `extfpm.c` code is structured in a similar way.
+The code in `gkfcmc.c` and `extfpm.c` files is structured in a similar way.
 
 ## Roadmap
 
