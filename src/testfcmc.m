@@ -34,14 +34,16 @@
 
 clear all
 
-C = 2; mark = 'x+';
-n = 11;
-d = 2;
-m = 2.0;
-maxiter = 100;
-mineps = 5e-5;
+C = 2; mark = 'x+';  % number of clusters and symbols for center trajectories
+colr = [0, 0.5, 0;   % Cluster 1 is dark green
+        1, 0, 0];    % Cluster 2 is red
+n = 11;              % number of data points
+d = 2;               % feature space dimensions
+m = 2.0;             % fuzzy exponent to use
+maxiter = 100;       % maximum number of iterations
+mineps = 5e-5;       % minimum error to stop iterations
 
-
+% Data points (input) (n x d)
 x = [10  8;
       9 14;
       8 20;
@@ -54,9 +56,11 @@ x = [10  8;
      48 26;
      46 32];
 
+% Presumed centers (d x C) (please note the transpose!)
 v = [14 18;
      47 21]';   % presumed centers  (these were used in one paper ;-) ;-)
 
+% U0 (C x n): the initial fuzzy partition matrix, it contains initial membership values
 U0 = fcmcinit (C,n);  % initialize the membership values (startup seed)
 
 dflag = input (' Distance type (0,1,2) ? ');
@@ -72,27 +76,37 @@ dflag = input (' Distance type (0,1,2) ? ');
 %         0.0040  -0.0048
 %        -0.0048   0.0336        for Mahalanobis distance (dflag=2)
 
-niter = max(size(err));
+niter = max(size(err));   % Actual number of iterations
 
 figure(1);
-plot(x(:,1),x(:,2),'o');
+plot(x(:,1),x(:,2),'ob');
 xmax = max([x(:,1); xctraj(1,:)'; 60]);
 ymax = max([x(:,2); xctraj(2,:)'; 40]);
 set(gca,'xlim',[0 xmax],'ylim',[0 ymax]);
 hold on;
 for k = 1:C
-  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k));
+  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k), 'color', colr(k,:));
 end;
 hold off;
-title ('samples and the center trajectories');
+xlabel('Feature 1');
+ylabel('Feature 2');
+title ('Samples and the center trajectories');
 
 figure(2);
-plot(err);
+plot(err,'b');
 ylim=get(gca,'ylim');
 set(gca,'ylim', [0 ylim(2)]);
-title('objective function values');
+xlabel('Iterations');
+title('Objective function values');
 
 figure(3);
 t = 1:n;
-plot(t,U');
-title('membership functions');
+plot(t,U(1,:),'color',colr(1,:));
+hold on;
+plot(t,U(2,:),'color',colr(2,:));
+hold off;
+xlabel('Data points');
+ylabel('Membership values');
+title('Membership functions');
+
+% nothing past this point

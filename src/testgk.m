@@ -41,15 +41,18 @@
 
 clear all
 
-C = 2; mark = 'x+';
-n1 = 200; n2 = 100;
-n = n1+n2;
-d = 2;
-m = 2.0;
-maxiter = 100;
-mineps = 1e-3;
+C = 2; mark = 'x+';  % number of clusters and symbols for center trajectories
+colr = [0, 0.5, 0;   % Cluster 1 is dark green
+        1, 0, 0];    % Cluster 2 is red
+n1 = 200; n2 = 100;  % number of data points for each class
+n = n1+n2;           % total number of data points
+d = 2;               % feature space dimensions
+m = 2.0;             % fuzzy exponent to use
+maxiter = 100;       % maximum number of iterations
+mineps = 1e-3;       % minimum error to stop iterations
 
-x = zeros(n,2);
+% Generate data points (input) (n x d)
+x = zeros(n,d);
 
 % generate Gaussian samples of class 1
 randn('seed',13);   % set seed
@@ -63,7 +66,8 @@ x(n1+1:n,:) = ones(n2,1)*[-4 -4]+(ones(n2,1)*[1 1.3]).*randn(n2,2);
 U0 = fcmcinit (C,n,1);  % initialize the membership values (startup seed)
 [xc,U,fineps,err,xctraj] = gkfcmc(x.',U0,m,maxiter,mineps);
 
-niter = max(size(err));
+niter = max(size(err));   % Actual number of iterations
+
 % find NMM labels
 [dumm,labs]=max(U);
 k1 = find(labs==1);
@@ -76,7 +80,7 @@ F1
 F2
 
 figure(1);
-plot(x(k1,1),x(k1,2),'.y',x(k2,1),x(k2,2),'.c');
+plot(x(:,1),x(:,2),'.b');
 xmax = max([x(:,1); xctraj(1,:)'; 10]);
 xmin = min([x(:,1); xctraj(1,:)'; -10]);
 ymax = max([x(:,2); xctraj(2,:)'; 10]);
@@ -85,18 +89,27 @@ set(gca,'xlim',[xmin xmax],'ylim',[ymin ymax]);
 set(gca,'dataaspectratio',[1 1 1]);
 hold on;
 for k = 1:C
-  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k));
+  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k), 'color', colr(k,:));
 end;
 hold off;
-title ('samples and the center trajectories');
+xlabel('Feature 1');
+ylabel('Feature 2');
+title ('Samples and the center trajectories');
 
 figure(2);
-plot(err);
+plot(err,'b');
 ylim=get(gca,'ylim');
 set(gca,'ylim', [0 ylim(2)]);
-title('objective function values');
+xlabel('Iterations');
+title('Objective function values');
 
 figure(3);
 t = 1:n;
-plot(t,U(1,:),'y',t,U(2,:),'c');
-title('membership functions');
+plot(t,U(1,:),'color',colr(1,:));
+hold on;
+plot(t,U(2,:),'color',colr(2,:));
+hold off;
+xlabel('Data points');
+ylabel('Membership values');
+title('Membership functions');
+
