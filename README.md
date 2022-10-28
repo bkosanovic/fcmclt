@@ -91,7 +91,7 @@ will provide you with examples of how to integrate these routines into your prog
 and how to initialize
 or evaluate the results.
 
-The source code may also provide references to additional reading material. The notation
+The MATLAB source code may also provide references to additional reading material. The notation
 used in the source code is based primarily on this book:
 
 - $\textcolor{#00c000}{\text{J.C. Bezdek,}}$ _"Pattern Recognition with Fuzzy Objective
@@ -120,8 +120,8 @@ The relevant MATLAB files are:
 - `fcmcinit.m`: Very important routine that is used to generate the initial fuzzy partition
    matrix U<sub>0</sub>.
 - `cltvalid.m`: Calculates clustering validity functionals
-- `fscat.m`: Calculates fuzzy scatter and covariance matrices for a fuzzy
-- `testextfpm.m`: Example of how to extrapolate fuzzy partition matric from the presumed
+- `fscat.m`: Calculates fuzzy scatter and covariance matrices for a fuzzy cluster
+- `testextfpm.m`: Example of how to extrapolate fuzzy partition matrix from the presumed
    cluster centers
 - `testfcmc.m`: Example of how to use FCMC algorithm
 - `testgk.m`: Example of GK variant for two Gaussian classes
@@ -160,7 +160,7 @@ NOTE: If you would like to use the C code outside of MATLAB, you may need to do 
   to use the parts of code that depend on these.
 - Finally, you would need to replace the `mexFunction()` implementation with your own
   wrapper that would handle memory management, optional input arguments, etc.
-  The memory management you may need to implement may substantially differ from the
+  The memory management you will need to implement will likely differ from the
   way MATLAB manages memory. Especially when it comes to allocating and deallocating
   memory.
 
