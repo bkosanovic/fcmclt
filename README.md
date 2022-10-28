@@ -106,6 +106,64 @@ of minor changes done since that time. Those were limited to accomodate the MEX 
 changes introduced by [MathWorks, Inc.](https://www.mathworks.com/)
 over a long period of time (25+ years).
 
+The code in `./src` folder contains C and MATLAB sources. The C files are:
+
+- `extfpm.c`: Extrapolates the fuzzy partition matrix using the presumed cluster centers
+- `fcmc.c`: Implements the Fuzzy c-Means Clustering (FCMC) algorithm
+- `gkfcmc.c`: Implements Gustafson-Kessel (GK) variant of the FCMC algorithm
+
+The relevant MATLAB files are:
+
+- `Contents.m`: Contains help text for the `fcmclt` package.
+- `fcmcinit.m`: Very important routine that is used to generate the initial fuzzy partition
+   matrix U<sub>0</sub>.
+- `cltvalid.m`: Calculates clustering validity functionals
+- `fscat.m`: Calculates fuzzy scatter and covariance matrices for a fuzzy
+- `testextfpm.m`: Example of how to extrapolate fuzzy partition matric from the presumed
+   cluster centers
+- `testfcmc.m`: Example of how to use FCMC algorithm
+- `testgk.m`: Example of GK variant for two Gaussian classes
+- `testgk2.m`: Example of GK for Gustafson's cross
+- `tstvalid.m`: Example of how to use validity functionals for the FCMC algorithm
+
+### C code organization
+
+The C functions include only two header files. The `math.h` and `mex.h`. The only
+two core MATLAB algorithms that are invoked within the C code are the matrix inverse and
+determinant.
+
+For brevity, only the `fcmc.c` code structure is outlined here:
+
+- The main function called by MATLAB is `mexFunction()`
+  - Checks the input arguments and applies the defaults for optional ones as needed
+  - Fetches pointers to vector data
+  - Allocates some memory
+  - Prepares for the FCMC routine
+    - Selects the distance metric (may allocate additional memory and may invoke
+      MATLAB inverse function in case of Mahalanobis metric)
+  - Executes the FCMC algorithm (`do_fcm()`)
+  - Checks and creates output variables
+- All other functions are written in plain C code
+
+In essense, the `mexFunction()` is a MATLAB wrapper for the algorithms that are to be
+accelerated.
+
+NOTE: If you would like to use the C code outside of MATLAB, you may need to do a few things:
+
+- Make it re-entrant. That is, you would need to instantiate the variables that are currently
+  global or static. That was not a problem for the MATLAB implementation, but may create
+  problems if you try to integrate this code somewhere else.
+- You would need to provide compatible
+  implementations for matrix inverse and determinant MATLAB functions in case you have
+  to use the parts of code that depend on these.
+- Finally, you would need to replace the `mexFunction()` implementation with your own
+  wrapper that would handle memory management, optional input arguments, etc.
+  The memory management you may need to implement may substantially differ from the
+  way MATLAB manages memory. Especially when it comes to allocating and deallocating
+  memory.
+
+The code in `gkfcmc.c` and `extfpm.c` files is structured in a similar way.
+
 ## Roadmap
 
 There are no plans to expand this package with additional features.
