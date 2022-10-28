@@ -201,40 +201,43 @@ the $\textcolor{#00c0c0}{\text{Institute of High Performance Computing (IHPC)}}$
 ## References
 
 For general information on fuzzy clustering, partition coefficient (F), and partition
-entropy (H), the best starting point is:
+entropy (H), the best starting point is
 
-- $\textcolor{#00c000}{\text{J.C. Bezdek,}}$ _"Pattern Recognition with Fuzzy Objective
-              Function Algorithms,"_ Plenum Press, New York, 1981.
+    J.C. Bezdek, "Pattern Recognition with Fuzzy Objective
+    Function Algorithms", Plenum Press, New York, 1981.
 
-For more information on NFI, please refer to
+For more information on nonfuzzy index (NFI), please refer to
 
     M. Roubens, "Pattern Classification Problems and Fuzzy Sets",
     Fuzzy Sets and Systems, 1:239-253, 1978.
 
-For more information on MinHT and MeanHT, please refer to
+For more information on minimum and mean hard tendencies (MinHT and MeanHT), please refer to
 
     F.F. Rivera, E.L. Zapata, and J.M. Carazo, "Cluster validity
     based on the hard tendency of the fuzzy classification",
     Pattern Recognition Letters, 11:7-12, 1990.
 
-For more information on MinRF and MaxRF, please refer to
+For more information on minimum and maximum relative fuzziness (MinRF and MaxRF), please
+refer to
 
     H.L. Gordon and R.L. Somorjai, "Fuzzy Cluster Analysis of
     Molecular Dynamics Trajectories", Proteins: Structure,
     Function, and Genetics, 14:249-264, 1992.
 
-For more information on MinNMMcard and related functionals including the selection
-of fuzzy exponent $m$, please refer to
+For more information on minimum nearest maximum membership cardinality (MinNMMcard)
+and related functionals including a way to go about the selection of fuzzy
+exponent $m$, please refer to
 
     B.R. Kosanovic, "Signal and System Analysis in Fuzzy Information Space",
     Ph.D. Dissertation, University of Pittaburgh, 1995.
 
-For more information on S, please refer to
+For more information on compactness and separation index (S), please refer to
 
     X.L. Xie and G. Beni, "A Validity Measure for Fuzzy Clustering",
     IEEE Trans. PAMI, 13(8):841-847, 1991.
 
-For more information on Fhv, Dpa, and Pd, please refer to
+For more information on fuzzy hypervolume (Fhv), average partition
+         density (Dpa), and partition density (Pd), please refer to
 
     I. Gath and A.B. Geva, "Fuzzy clustering for the estimation of
     the parameters of the components of mixtures of normal
