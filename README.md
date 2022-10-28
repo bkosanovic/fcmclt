@@ -23,10 +23,12 @@ The following functionality is supported:
   - Euclidean, diagonal, and Mahalanobis distance metric
 - $\textcolor{#00c0c0}{\text{Gustafson-Kessel}}$ fuzzy c-means clustering
 - $\textcolor{#00c0c0}{\text{Initial fuzzy partition matrix}}$ generation
-- $\textcolor{#00c0c0}{\text{8 Clustering validity functionals:}}$
+- $\textcolor{#00c0c0}{\text{12 Clustering validity functionals:}}$
   - partition coefficient, partition entropy, nonfuzzy index,
     minimum and mean hard tendencies, minimum and maximum relative fuzziness,
-    and the minimum nearest maximum membership cardinality
+    the minimum nearest maximum membership cardinality, compactness
+    and separation index, fuzzy hypervolume, average partition
+    density, and the partition density of a resulting fuzzy partition
 - $\textcolor{#00c0c0}{\text{Fuzzy partition matrix extrapolation}}$ that uses the presumed cluster centers
 - $\textcolor{#00c0c0}{\text{Fuzzy scatter and covariance matrices}}$ calculation for fuzzy clusters
 - $\textcolor{#00c0c0}{\text{Test code}}$ (in MATLAB) to verify the proper installation of software
