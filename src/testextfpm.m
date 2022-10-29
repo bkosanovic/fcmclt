@@ -40,15 +40,20 @@
 % SOFTWARE.
 
 clear all
+if ~isempty(findall(0,'type','figure','number',4))
+  delete(4);
+end
 
-C = 2; mark = 'x+';
-n = 11;
-d = 2;
-m = 2.0;
-maxiter = 100;
-mineps = 5e-5;
+C = 2; mark = 'x+';  % number of clusters and symbols for center trajectories
+colr = [0, 0, 1;     % Cluster 1 is blue
+        1, 0, 0];    % Cluster 2 is red
+n = 11;              % number of data points
+d = 2;               % feature space dimensions
+m = 2.0;             % fuzzy exponent to use
+maxiter = 100;       % maximum number of iterations
+mineps = 5e-5;       % minimum error to stop iterations
 
-
+% Data points (input) (n x d)
 x = [11  9;
       9 14;
       8 20;
@@ -61,9 +66,11 @@ x = [11  9;
      48 26;
      45 31];
 
+% Presumed centers (d x C) (please note the transpose!)
 v = [14 18;
      47 21]';   % presumed centers  (these were used in one paper ;-) ;-)
 
+% U0 (C x n): the initial fuzzy partition matrix, it contains initial membership values
 % This particular initialization of FCMC algorithm also uses extfpm() !!!
 C0 = [5 5; 30 20].';            % initial center positions
 U0 = fcmcinit (C,n,2,x.',C0);   % initialize the membership values (startup seed)
@@ -87,35 +94,49 @@ dflag = input (' Distance type (0,1,2) ? ');
 % Use presumed centers to extrapolate the fuzzy partition matrix
 [U_e,err_e,B_e]=extfpm(x.',v,m,dflag);
 
-niter = max(size(err));
+niter = max(size(err));   % Actual number of iterations for the fcmc()
 
 figure(1);
-plot(x(:,1),x(:,2),'o');
+plot(x(:,1),x(:,2),'ok');
 xmax = max([x(:,1); xctraj(1,:)'; 60]);
 ymax = max([x(:,2); xctraj(2,:)'; 40]);
 set(gca,'xlim',[0 xmax],'ylim',[0 ymax]);
 hold on;
 for k = 1:C
-  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k));
-  plot(xctraj(1,C*niter-C+k), xctraj(2,C*niter-C+k), mark(k),'linew',2);
-  plot(v(1,k),v(2,k),[mark(k),'r'],'linew',2)
+  plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k), 'color', colr(k,:));
+  plot(xctraj(1,C*niter-C+k), xctraj(2,C*niter-C+k), mark(k), ...
+      'color', colr(k,:), 'linew',2);
+  plot(v(1,k),v(2,k), mark(k), 'color', [0 0 0],'linew',2)
 end;
 hold off;
-title ('samples and the center trajectories');
+grid;
+xlabel('Feature 1');
+ylabel('Feature 2');
+title ('Samples and the center trajectories');
 
 figure(2);
-plot(err,'--');   % as provided by fcmc
+plot(err,'--', 'color', [0 0.7 0]);   % as provided by fcmc
 hold on
-  plot([1 length(err)],err_e*[1 1],'r');   % as provided by extrapolation with presumed centers
+  plot([1 length(err)],err_e*[1 1],'k');   % as provided by extrapolation with presumed centers
 hold off
+grid;
 ylim=get(gca,'ylim');
 set(gca,'ylim', [0 ylim(2)]);
 title('objective function values');
 
 figure(3);
 t = 1:n;
-plot(t,U','--');     % as provided by fcmc
+% as provided by fcmc
+plot(t,U(1,:),'--','color',colr(1,:));
 hold on;
-  plot(t,U_e');      % as provided by extrapolation with presumed centers
+plot(t,U(2,:),'--','color',colr(2,:));
+
+% as provided by extrapolation with presumed centers
+plot(t,U_e(1,:),'color',colr(1,:));
+plot(t,U_e(2,:),'color',colr(2,:));
 hold off;
-title('membership functions');
+grid;
+xlabel('Data points');
+ylabel('Membership values');
+title('Membership functions');
+

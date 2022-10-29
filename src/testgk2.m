@@ -40,7 +40,7 @@
 clear all
 
 C = 2; mark = 'x+';  % number of clusters and symbols for center trajectories
-colr = [0, 0.5, 0;   % Cluster 1 is dark green
+colr = [0, 0, 1;     % Cluster 1 is blue
         1, 0, 0];    % Cluster 2 is red
 n = 20;              % number of data points
 d = 2;               % feature space dimensions
@@ -89,7 +89,7 @@ F1
 F2
 
 figure(1);
-plot(x(:,1),x(:,2),'ob');
+plot(x(:,1),x(:,2),'ok');
 xmax = max([x(:,1); xctraj(1,:)'; 10]);
 xmin = min([x(:,1); xctraj(1,:)'; -10]);
 ymax = max([x(:,2); xctraj(2,:)'; 10]);
@@ -100,12 +100,13 @@ for k = 1:C
   plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k), 'color', colr(k,:));
 end;
 hold off;
+grid;
 xlabel('Feature 1');
 ylabel('Feature 2');
 title ('Samples and the center trajectories');
 
 figure(2);
-plot(err,'b');
+plot(err,'k'); grid;
 ylim=get(gca,'ylim');
 set(gca,'ylim', [0 ylim(2)]);
 xlabel('Iterations');
@@ -117,6 +118,7 @@ plot(t,U(1,:),'color',colr(1,:));
 hold on;
 plot(t,U(2,:),'color',colr(2,:));
 hold off;
+grid;
 xlabel('Data points');
 ylabel('Membership values');
 title('Membership functions');
@@ -138,10 +140,9 @@ for k = 1:C
       'LineWidth', 1, 'MarkerSize', 10, 'color', colr(k,:));
 end;
 hold off;
+grid;
 xlabel('Feature 1');
 ylabel('Feature 2');
 title ('Clustering result with cluster centers');
 
-%% TODO: Add grid to all plots for all test programs
-
-
+% nothing past this point

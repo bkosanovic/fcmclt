@@ -35,7 +35,7 @@
 clear all
 
 C = 2; mark = 'x+';  % number of clusters and symbols for center trajectories
-colr = [0, 0.5, 0;   % Cluster 1 is dark green
+colr = [0, 0, 1;     % Cluster 1 is blue
         1, 0, 0];    % Cluster 2 is red
 n = 11;              % number of data points
 d = 2;               % feature space dimensions
@@ -79,7 +79,7 @@ dflag = input (' Distance type (0,1,2) ? ');
 niter = max(size(err));   % Actual number of iterations
 
 figure(1);
-plot(x(:,1),x(:,2),'ob');
+plot(x(:,1),x(:,2),'ok');
 xmax = max([x(:,1); xctraj(1,:)'; 60]);
 ymax = max([x(:,2); xctraj(2,:)'; 40]);
 set(gca,'xlim',[0 xmax],'ylim',[0 ymax]);
@@ -88,12 +88,13 @@ for k = 1:C
   plot(xctraj(1,k:C:C*niter), xctraj(2,k:C:C*niter), mark(k), 'color', colr(k,:));
 end;
 hold off;
+grid;
 xlabel('Feature 1');
 ylabel('Feature 2');
 title ('Samples and the center trajectories');
 
 figure(2);
-plot(err,'b');
+plot(err,'k'); grid;
 ylim=get(gca,'ylim');
 set(gca,'ylim', [0 ylim(2)]);
 xlabel('Iterations');
@@ -105,8 +106,29 @@ plot(t,U(1,:),'color',colr(1,:));
 hold on;
 plot(t,U(2,:),'color',colr(2,:));
 hold off;
+grid;
 xlabel('Data points');
 ylabel('Membership values');
 title('Membership functions');
+
+% Display clustering results where color of a point is a mixture based on membership values
+figure(4);
+for k = 1:n
+  plot(x(k,1),x(k,2),'.', 'MarkerSize', 20, 'color', U(1,k)*colr(1,:)+U(2,k)*colr(2,:)); hold on;
+end;
+hold off;
+xmax = max([x(:,1); xctraj(1,:)'; 60]);
+ymax = max([x(:,2); xctraj(2,:)'; 40]);
+set(gca,'xlim',[0 xmax],'ylim',[0 ymax]);
+hold on;
+for k = 1:C
+  plot(xctraj(1,C*(niter-1)+k), xctraj(2,C*(niter-1)+k), mark(k), ...
+      'LineWidth', 1, 'MarkerSize', 10, 'color', colr(k,:));
+end;
+hold off;
+grid;
+xlabel('Feature 1');
+ylabel('Feature 2');
+title ('Clustering result with cluster centers');
 
 % nothing past this point
