@@ -139,4 +139,6 @@ grid;
 xlabel('Data points');
 ylabel('Membership values');
 title('Membership functions');
+legend('C_1^{fcm}', 'C_2^{fcm}', 'C_1', 'C_2', 'location', 'east');
 
+% nothing past this point
