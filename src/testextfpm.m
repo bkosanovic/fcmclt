@@ -121,7 +121,9 @@ hold on
 hold off
 grid;
 ylim=get(gca,'ylim');
-set(gca,'ylim', [0 ylim(2)]);
+y2 = ylim(2);
+y2 = 10^ceil(log10(y2));
+set(gca,'ylim', [0 y2]);
 title('objective function values');
 
 figure(3);
