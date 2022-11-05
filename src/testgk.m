@@ -129,7 +129,7 @@ set(gca,'xlim',[xmin xmax],'ylim',[ymin ymax]);
 hold on;
 for k = 1:C
   plot(xctraj(1,C*(niter-1)+k), xctraj(2,C*(niter-1)+k), mark(k), ...
-      'LineWidth', 3, 'MarkerSize', 10, 'color', 0.9*[0 1 1 ]);
+      'LineWidth', 3, 'MarkerSize', 10, 'color', 0.8*[0 1 0]);
 end;
 hold off;
 grid;
