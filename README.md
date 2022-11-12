@@ -72,7 +72,7 @@ want MATLAB
 to access it. As an example, let us assume that you copied all the files
 from `./src` to `D:\MyMatlab\fcmclt` on a Windows system.
 
-You may now proceed to testing your installation as described below.
+You may now proceed to testing your installation [as described below](https://github.com/bkosanovic/fcmclt/tree/instructions-release#testing-and-finalizing-your-installation).
 
 #### Manual from the source with generating MEX binaries
 
