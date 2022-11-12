@@ -1,3 +1,9 @@
+<p align="left">
+<a href="https://github.com/bkosanovic/fcmclt/blob/master/LICENSE.md"><img alt="MIT License" src="https://img.shields.io/github/license/bkosanovic/fcmclt" /></a>
+<a href="https://github.com/bkosanovic/fcmclt/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/bkosanovic/fcmclt?display_name=tag" /></a>
+</p>
+
+
 # fcmclt
 Fuzzy clustering C implementation for MATLAB (FCM, Gustafson-Kessel, clustering validity,
 extrapolation with presumed cluster centers)
