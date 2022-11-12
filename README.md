@@ -19,20 +19,20 @@ in the [Implementation section](/README.md#Implementation) below.
 
 The following functionality is supported:
 - [Fuzzy c-Means Clustering](https://en.wikipedia.org/wiki/Fuzzy_clustering)
-  (based on the work of $\textcolor{#00c000}{\text{James C. Bezdek}}$ and $\textcolor{#00c000}{\text{Enrique Ruspini}}$)
+  (based on the work of _James C. Bezdek_ and _Enrique Ruspini_.)
   - Euclidean, diagonal, and Mahalanobis distance metric
-- $\textcolor{#00c0c0}{\text{Gustafson-Kessel}}$ fuzzy c-means clustering
-- $\textcolor{#00c0c0}{\text{Initial fuzzy partition matrix}}$ generation
-- $\textcolor{#00c0c0}{\text{12 Clustering validity functionals:}}$
+- **Gustafson-Kessel** fuzzy c-means clustering
+- **Initial fuzzy partition matrix** generation
+- **12 Clustering validity functionals:**
   - partition coefficient, partition entropy, nonfuzzy index,
     minimum and mean hard tendencies, minimum and maximum relative fuzziness,
     the minimum nearest maximum membership cardinality, compactness
     and separation index, fuzzy hypervolume, average partition
     density, and the partition density of a resulting fuzzy partition
-- $\textcolor{#00c0c0}{\text{Fuzzy partition matrix extrapolation}}$ that uses the presumed cluster centers
-- $\textcolor{#00c0c0}{\text{Fuzzy scatter and covariance matrices}}$ calculation for fuzzy clusters
-- $\textcolor{#00c0c0}{\text{Test code}}$ (in MATLAB) to verify the proper installation of software
-- $\textcolor{#00c0c0}{\text{Detailed help text}}$ describing how to use the provided functions
+- **Fuzzy partition matrix extrapolation** that uses the presumed cluster centers
+- **Fuzzy scatter and covariance matrices** calculation for fuzzy clusters
+- **Test code** (in MATLAB) to verify the proper installation of software
+- **Detailed help text** describing how to use the provided functions
 
 The primary motivation for this work was to estimate membership functions of the
 [Temporal Fuzzy Sets](https://ieeexplore.ieee.org/abstract/document/375073)
@@ -97,7 +97,7 @@ or evaluate the results.
 The MATLAB source code may also provide references to additional reading material. The notation
 used in the source code is based primarily on this book:
 
-- $\textcolor{#00c000}{\text{J.C. Bezdek,}}$ _"Pattern Recognition with Fuzzy Objective
+- **J.C. Bezdek,** _"Pattern Recognition with Fuzzy Objective
               Function Algorithms,"_ Plenum Press, New York, 1981.
 
 ## Support
@@ -181,7 +181,7 @@ Pull requests will only be considered for the following contributions:
 - Interesting examples that show how to use the provided functions
   - Please try to provide a single self-contained MATLAB file that does not require any
     data files. If additional MATLAB toolboxes are required, please list them all.
-  - $\textcolor{red}{\text{Document your code!}}$ If your code cannot be easily reviewed
+  - ***Document your code!*** If your code cannot be easily reviewed
     it will be swiftly rejected no matter how great you think it is.
 
 ## Authors
@@ -191,12 +191,12 @@ Ph.D. work at the University of Pittsburgh.
 
 ## Acknowledgments
 
-The author would like to acknowledge $\textcolor{#00c000}{\text{Dr. Brahim Hamadicharef}}$
+The author would like to acknowledge _Dr. Brahim Hamadicharef_
 who was at the time
 (August, 2003) with the
 University of Plymouth for submitting a fix to make the `fcmclt` package work for
 MATLAB 6.5 R13. If we are to trust the LinkedIn, Dr. Hamadicharef is now (2022) with
-the $\textcolor{#00c0c0}{\text{Institute of High Performance Computing (IHPC)}}$ in Singapore.
+the _Institute of High Performance Computing (IHPC)_ in Singapore.
 
 ## References
 
