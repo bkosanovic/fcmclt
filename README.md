@@ -260,7 +260,7 @@ refer to
 
 For more information on minimum nearest maximum membership cardinality (MinNMMcard)
 and related functionals including a way to go about the selection of fuzzy
-exponent $m$, please refer to
+exponent _m_, please refer to
 
     B.R. Kosanovic, "Signal and System Analysis in Fuzzy Information Space",
     Ph.D. Dissertation, University of Pittaburgh, 1995.
