@@ -66,8 +66,13 @@ the accelerated versions of the three main algorithms from their C source code.
 
 Once you verified you have MATLAB installed you can download the latest release. All the
 necessary files are contained within the `fcmclt_M_m_p_w64.zip` file. When you unpack the
-zip archive, the necessary MATLAB scripts and the binaries will be contained in the
-`./src` folder. You may proceed to testing your installation as described below.
+zip archive, the MATLAB scripts and the binaries will be contained in the
+`./src` folder. You may optionally copy the contents of ./src directory to a folder where you
+want MATLAB
+to access it. As an example, let us assume that you copied all the files
+from `./src` to `D:\MyMatlab\fcmclt` on a Windows system.
+
+You may now proceed to testing your installation as described below.
 
 #### Manual from the source with generating MEX binaries
 
@@ -92,8 +97,9 @@ MATLAB functions implemented in C language, you may proceed with the following s
 
 #### Testing and finalizing your installation
 
-- You can test your installation by running test routines that are provided in `./src` folder,
-   e.g. try running `>> testfcmc` from the same folder.
+- You can test your installation by running test routines that were provided in `./src` folder
+  and that you copied to `D:\MyMatlab\fcmclt`,
+   e.g. try running `>> testfcmc` from that folder.
 - Try all other test routines. They have prefix `test` or `tst`.
   - NOTE: Some may display a warning indicating the dataset may be too small for reliable
     clustering. That is normal and expected behavior for those examples.
