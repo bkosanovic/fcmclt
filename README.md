@@ -1,6 +1,7 @@
 <p align="left">
 <a href="https://github.com/bkosanovic/fcmclt/blob/master/LICENSE.md"><img alt="MIT License" src="https://img.shields.io/github/license/bkosanovic/fcmclt" /></a>
 <a href="https://github.com/bkosanovic/fcmclt/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/bkosanovic/fcmclt?display_name=tag" /></a>
+<a href="https://github.com/bkosanovic/fcmclt/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/bkosanovic/fcmclt/total" /></a>
 </p>
 
 
