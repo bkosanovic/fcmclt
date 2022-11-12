@@ -122,7 +122,7 @@ if you do not know how to do it.
 
 The best way to learn how to use the functions provided in this package is to read their
 documentation. You may run `>> help <function-name>` to get the function description.
-In addition to the help text for the three main algorithms (fcmc, gkfcmc, and extfpm),
+In addition to the help text for the three main algorithms (**fcmc**, **gkfcmc**, and **extfpm**),
 you should consult the MATLAB source code for the test routines provided in `.m` files. That
 will provide you with examples of how to integrate these routines into your programs
 and how to initialize
