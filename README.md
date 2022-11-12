@@ -46,14 +46,35 @@ social sciense, etc.
 
 ## Installation
 
+The installation may be done either by downloading the latest release which includes generated
+binaries for the Windows x64 MEX files (MATLAB 2022b used), or by cloaning or downloading
+the source code. The process of generating your own binaries from the source code
+is straighforward.
+
 ### Prerequisites
 
 To use this 
-software one must have [MATLAB](https://www.mathworks.com/) installed and must be able to run the
-[mex command](https://www.mathworks.com/help/matlab/matlab_external/build-an-executable-mex-file.html) 
-to generate the accelerated versions of the three main algorithms from their C source code.
+software one must have [MATLAB](https://www.mathworks.com/) installed and if you plan
+to generate the MEX binaries you must be able to run the
+[mex command.](https://www.mathworks.com/help/matlab/matlab_external/build-an-executable-mex-file.html) 
+This command is used for generating
+the accelerated versions of the three main algorithms from their C source code.
 
 ### Steps to install
+
+#### From the release
+
+Once you verified you have MATLAB installed you can download the latest release. All the
+necessary files are contained within the `fcmclt_M_m_p_w64.zip` file. When you unpack the
+zip archive, the MATLAB scripts and the binaries will be contained in the
+`./src` folder. You may optionally copy the contents of ./src directory to a folder where you
+want MATLAB
+to access it. As an example, let us assume that you copied all the files
+from `./src` to `D:\MyMatlab\fcmclt` on a Windows system.
+
+You may now proceed to testing your installation [as described below](#testing-and-finalizing-your-installation).
+
+#### Manual from the source with generating MEX binaries
 
 Once you verified you have MATLAB installed and you can successfully run mex command to build
 MATLAB functions implemented in C language, you may proceed with the following steps:
@@ -73,8 +94,12 @@ MATLAB functions implemented in C language, you may proceed with the following s
 - You should see three new files created: `extfpm.<mexext>`, `fcmc.<mexext>`,
   `gkfcmc.<mexext>`, where `<mexext>` reflects the mex file extension on your system. For
   64-bit Windows system, it should be `mexw64`.
-- You can now test your installation by running test routines that are provided, e.g. try
-  running `>> testfcmc` from the same folder.
+
+#### Testing and finalizing your installation
+
+- You can test your installation by running test routines that were provided in `./src` folder
+  and that you copied to `D:\MyMatlab\fcmclt`,
+   e.g. try running `>> testfcmc` from that folder.
 - Try all other test routines. They have prefix `test` or `tst`.
   - NOTE: Some may display a warning indicating the dataset may be too small for reliable
     clustering. That is normal and expected behavior for those examples.
