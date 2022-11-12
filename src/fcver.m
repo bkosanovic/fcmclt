@@ -26,7 +26,7 @@ function [vd,vn] = fcver
 % SOFTWARE.
 
 % Version number of the tool
-vd = '3.0.5';
+vd = '3.0.6';
 vn = strrep(vd,'.','_');
 
 % nothing past this point
