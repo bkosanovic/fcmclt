@@ -71,10 +71,12 @@ the accelerated versions of the three main algorithms from their C source code.
 
 #### From the release
 
-Once you verified you have MATLAB installed you can download the latest release. All the
+Once you verified you have MATLAB installed you can download
+[the latest release.](https://github.com/bkosanovic/fcmclt/releases/latest)
+All the
 necessary files are contained within the `fcmclt_M_m_p_w64.zip` file. When you unpack the
 zip archive, the MATLAB scripts and the binaries will be contained in the
-`./src` folder. You may optionally copy the contents of ./src directory to a folder where you
+`./src` folder. You may optionally copy the contents of `./src` directory to a folder where you
 want MATLAB
 to access it. As an example, let us assume that you copied all the files
 from `./src` to `D:\MyMatlab\fcmclt` on a Windows system.
