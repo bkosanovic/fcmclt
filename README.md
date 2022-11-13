@@ -120,6 +120,12 @@ you may
 add the `D:\MyMatlab\fcmclt` to your MATLAB path. You may consult MATLAB documentation
 if you do not know how to do it.
 
+### Compatibility
+
+The MEX files provided with the release have been generated using MATLAB R2022b on Windows x64 OS. The C code did not
+undergo any changes since MATLAB R13. The generation of MEX binaries has been tested most
+recently with 2018b, 2019b, and 2022b MATLAB releases.
+
 ## Usage
 
 The best way to learn how to use the functions provided in this package is to read their
