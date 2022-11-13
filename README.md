@@ -6,7 +6,7 @@
 </p>
 
 # fcmclt
-Fuzzy clustering C implementation for MATLAB (FCM, Gustafson-Kessel, clustering validity,
+Fast fuzzy clustering C (MEX API) implementation for MATLAB (FCM, Gustafson-Kessel, clustering validity,
 extrapolation with presumed cluster centers)
 
 ## Project status
@@ -19,10 +19,12 @@ This repository provides efficient C implementation of two types of Fuzzy c-Mean
 algorithms and
 several related tools that can be used in clustering evaluation and validation. Once installed,
 the provided
-functions are directly callable within MATLAB. To use them outside of MATLAB, one would need to
+functions are directly callable from MATLAB and will run considerably faster compared to similar fuzzy clustering packages
+that are implemented purely in MATLAB language.
+To use these algorithms outside of MATLAB, one would need to
 modify the existing C code.
 Additional implementation details that may be useful are included
-in the [Implementation section](/README.md#Implementation) below.
+in the [implementation section](/README.md#Implementation) below.
 
 The following functionality is supported:
 - [Fuzzy c-Means Clustering](https://en.wikipedia.org/wiki/Fuzzy_clustering)
@@ -81,7 +83,7 @@ want MATLAB
 to access it. As an example, let us assume that you copied all the files
 from `./src` to `D:\MyMatlab\fcmclt` on a Windows system.
 
-You may now proceed to testing your installation [as described below](#testing-and-finalizing-your-installation).
+You may now proceed to testing your installation [as described below](/README.md#testing-and-finalizing-your-installation).
 
 #### Manual from the source with generating MEX binaries
 
