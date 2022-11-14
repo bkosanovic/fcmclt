@@ -133,8 +133,7 @@ documentation. You may run `>> help <function-name>` to get the function descrip
 In addition to the help text for the three main algorithms (**fcmc**, **gkfcmc**, and **extfpm**),
 you should consult the MATLAB source code for the test routines provided in `.m` files. That
 will provide you with examples of how to integrate these routines into your programs
-and how to initialize
-or evaluate the results.
+and how to initialize fuzzy partition matrix or evaluate the results.
 
 The MATLAB source code may also provide references to additional reading material. The notation
 used in the source code is based primarily on this book:
@@ -271,7 +270,7 @@ and related functionals including a way to go about the selection of fuzzy
 exponent _m_, please refer to
 
     B.R. Kosanovic, "Signal and System Analysis in Fuzzy Information Space",
-    Ph.D. Dissertation, University of Pittaburgh, 1995.
+    Ph.D. Dissertation, University of Pittsburgh, 1995.
 
 For more information on compactness and separation index (S), please refer to
 
